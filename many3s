@@ -1,0 +1,19 @@
+a=[1,6,9,10,20,27]
+def doit(x,lev,z):
+  if lev>4:
+    return
+
+  if x>58:
+    return
+
+  if x==58:
+    print(58,z)
+    return
+
+  for i in range(lev,len(a)):
+    n=a[i]
+    z1=z+["+",n];doit(x+n,lev+1,z1)
+    z1=z+["-",n];doit(x-n,lev+1,z1)
+    z1=z+["*",n];doit(x*n,lev+1,z1)
+    z1=z+["/",n];doit(x/n,lev+1,z1)
+doit(0,0,[])
